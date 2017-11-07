@@ -3,17 +3,19 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) throws IOException{
-        String strLineOne, strLine2;
+        String strLineOne;
+        String strLine2;
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("Введите строку 1");
-        strLineOne = inConsole();
+        strLineOne = br.readLine();
         System.out.println("Введите строку 2");
-        strLine2 = inConsole();
+        strLine2 = br.readLine();
 
         if (strLineOne.contains(strLine2)) {
             System.out.println("Строка 1 содержит в себе строку 2");
@@ -32,14 +34,8 @@ public class Main {
         }
     }
 
-    static String inConsole () throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        return br.readLine();
-    }
-
     static String repeatSymbol (String strOne, String str2) {
-        String strTemp;
-        strTemp = "";
+        String strTemp = "";
 
         for (int i = 0; i < str2.length(); i++){
             if ( (strOne.contains(""+str2.charAt(i))) && !(strTemp.contains(""+str2.charAt(i))) ) {
